@@ -1,0 +1,30 @@
+{
+  "name": "calendario",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "./bin/calendario.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raphamorim/calendario"
+  },
+  "keywords": [],
+  "author": "Raphael Amorim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raphamorim/calendario/issues"
+  },
+  "homepage": "https://github.com/raphamorim/calendario",
+  "devDependencies": {
+    "mocha": "^2.2.1"
+  },
+  "dependencies": {
+    "ical2json": "^0.2.0"
+  }
+}
