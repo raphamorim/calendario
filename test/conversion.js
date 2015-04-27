@@ -62,4 +62,7 @@ describe('Methods', function() {
 			});
 		});
 	});
+	context('range()', function() {
+
+	});
 });

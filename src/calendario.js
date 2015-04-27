@@ -10,6 +10,12 @@ var Calendario = function(calendar) {
     this.calendarData = require(path);
 };
 
+Calendario.prototype.formatDate = function(date) {
+    return date.getFullYear() + ''
+        + ('0' + (date.getMonth() + 1)).slice(-2) + ''
+        + ('0' + date.getDate()).slice(-2);
+}
+
 Calendario.prototype.getEvents = function(dateFormat) {
     var self = this,
         data = self.calendarData;
@@ -28,14 +34,29 @@ Calendario.prototype.getEvents = function(dateFormat) {
 Calendario.prototype.isWorkday = function(date) {
     var self = this;
 
-    var dateStart = date.getFullYear() + ''
-        + ('0' + (date.getMonth() + 1)).slice(-2) + ''
-        + ('0' + date.getDate()).slice(-2);
-
-    if (self.getEvents(dateStart).length > 0)
+    date = self.formatDate(date);
+    if (self.getEvents(date).length > 0)
         return false;
 
     return true;
+}
+
+Calendario.prototype.range = function(dateStart, dateEnd) {
+    var self = this,
+        range = [];
+
+    for (var date = self.formatDate(dateStart); date <= self.formatDate(dateEnd); date++) {
+        var dateEvents = self.getEvents(date);
+
+        if (dateEvents.length > 0) {
+            range.push({
+                'date': date,
+                'events': dateEvents
+            });
+        }
+    }
+
+    return range;
 }
 
 module.exports = Calendario;
