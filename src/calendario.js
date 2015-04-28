@@ -1,62 +1,59 @@
 'use strict';
 
-var lib = require('../lib');
-
-var Calendario = function(calendar) {
-    this.calendar = calendar.toUpperCase();
-
-    var path = '../calendars/' + this.calendar + '/' + 
-        this.calendar + '-national.json';
-    this.calendarData = require(path);
-};
-
-Calendario.prototype.formatDate = function(date) {
-    return date.getFullYear() + ''
-        + ('0' + (date.getMonth() + 1)).slice(-2) + ''
-        + ('0' + date.getDate()).slice(-2);
+function Calendario() {
+    this.events = []; // [{date: 1, source: }, {date: 1, source: }]
+    this.sources = [];
 }
 
-Calendario.prototype.getEvents = function(dateFormat) {
-    var self = this,
-        data = self.calendarData;
+Calendario.prototype.parseSource = function(name, source) {
+    name = name.toUpperCase();
+}
 
-    var calendarEvents = data['VCALENDAR'][0]['VEVENT'],
-        events = [];
+Calendario.prototype.use = function(name, source) {
+    name = name.toUpperCase();
+    var sourceType = typeof(source);
 
-    calendarEvents.forEach(function(ev) {
-        if(dateFormat === ev['DTSTART;VALUE=DATE']) 
-            events.push(ev);
-    });
+    if (sourceType === 'undefined') {
+        this.setSource(name);
+    } else if (sourceType === 'object') {
+        // this.parseSource(name, source);
+    } else if (sourceType === 'array') {
+        // this.addSource(name, source);
+    }
+}
 
-    return events;
-};
+Calendario.prototype.setSource = function(name) {
+    var events = [],
+        date;
+
+    var data = require('../calendars/' + name + '/' + name + '.json');
+        
+    data = data['VCALENDAR'][0]['VEVENT'];
+    data.forEach(function(ev) {
+        date = ev['DTSTART;VALUE=DATE']
+        date = date.slice(0,4) + '-' + date.slice(4,6) + '-' + date.slice(6,8);
+        events.push({
+            date: date,
+            summary: ev['SUMMARY'],
+            workday: false
+        })
+    })
+
+    this.sources.push({source: name, events: events});
+}
+
+Calendario.prototype.sourceList = function() {
+    return this.sources.map(function(a,b) { return a['source'] });
+}
+
+Calendario.prototype.eventsList = function() {
+    return this.sources.map(function(a,b) { return a['events'] });
+}
 
 Calendario.prototype.isWorkday = function(date) {
-    var self = this;
+    var events = this.eventsList();
 
-    date = self.formatDate(date);
-    if (self.getEvents(date).length > 0)
-        return false;
-
-    return true;
+    return date;
 }
 
-Calendario.prototype.range = function(dateStart, dateEnd) {
-    var self = this,
-        range = [];
-
-    for (var date = self.formatDate(dateStart); date <= self.formatDate(dateEnd); date++) {
-        var dateEvents = self.getEvents(date);
-
-        if (dateEvents.length > 0) {
-            range.push({
-                'date': date,
-                'events': dateEvents
-            });
-        }
-    }
-
-    return range;
-}
-
-module.exports = Calendario;
+module.exports = new Calendario();

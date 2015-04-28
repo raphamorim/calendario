@@ -1,8 +1,9 @@
 module.exports = require('./src/calendario.js');
 
-var Calendario = require('./src/calendario.js'),
-	calendario = new Calendario('PT-BR');
+var calendario = require('./src/calendario.js');
+calendario.use('BR');
+calendario.use('US');
 
-calendario.isWorkday(new Date());
+console.log(calendario.sourceList());
 
-
+console.log(calendario.isWorkday(new Date()));
