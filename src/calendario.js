@@ -33,7 +33,7 @@ Calendario.prototype.setSource = function(name) {
         date = ev['DTSTART;VALUE=DATE']
         date = date.slice(0,4) + '-' + date.slice(4,6) + '-' + date.slice(6,8);
         events.push({
-            date: date,
+            date: new Date(date + ' 00:00:00'),
             summary: ev['SUMMARY'],
             workday: false
         })
@@ -47,13 +47,31 @@ Calendario.prototype.sourceList = function() {
 }
 
 Calendario.prototype.eventsList = function() {
-    return this.sources.map(function(a,b) { return a['events'] });
+    var events = this.sources.map(function(a,b) { return a['events'] }),
+        eventsList = [];
+
+    for (var i = 1; i <= events.length; i++) {
+        eventsList = eventsList.concat(events[i - 1]);
+    }
+    return eventsList;
+}
+
+Calendario.prototype.dayDiff = function(dateEarlier, dateLater) {
+    var dayTime = 1000*60*60*24;
+    return (Math.round((dateLater.getTime()-dateEarlier.getTime())/dayTime));
 }
 
 Calendario.prototype.isWorkday = function(date) {
-    var events = this.eventsList();
+    var self = this,
+        events = this.eventsList(),
+        workday = true;
 
-    return date;
+    events.forEach(function(ev) {
+        if (self.dayDiff(date, ev.date) === 0)
+            workday = ev.workday
+    })
+
+    return workday;
 }
 
 module.exports = new Calendario();

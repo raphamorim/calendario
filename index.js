@@ -6,4 +6,4 @@ calendario.use('US');
 
 console.log(calendario.sourceList());
 
-console.log(calendario.isWorkday(new Date()));
+console.log(calendario.isWorkday(new Date('2015-12-01')));
