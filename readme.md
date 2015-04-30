@@ -1,6 +1,61 @@
 # calendario
 
-> Calendario rocks!
+> Verify workdays, holidays, weekends or create events and make your own events
+
+## Install
+
+Before anything, you need to have [node](http://nodejs.org/) and [npm](https://www.npmjs.org/) installed.
+
+    $ npm install calendario
+
+## Usage
+
+Currently there are only national calendars
+
+**Available for:**
+
+- Brazil
+- United States of America
+
+You can set the calendar using `use()`
+
+```javascript
+var calendario = require('./src/calendario.js');
+calendario.use('BR');
+```
+
+You can create your owns calendars, passing a array of objects like these:
+
+```javascript
+var calendario = require('./src/calendario.js');
+calendario.use('BR');
+calendario.use('MozillaCalendar', function(set) {
+	set([
+		{date: new Date(2020, 11, 25), workday: true, description: "Mozilla Summit"},
+		{date: new Date(2021, 1, 20), workday: true, description: "Mozilla another event"},
+	]);
+});
+calendario.use('GoogleCalendar', function(set) {
+	set([
+		{date: new Date(2017, 6, 3), workday: true, description: "Google IO"},
+		{date: new Date(2018, 10, 5), workday: true, description: "Google another event"},
+	]);
+});
+```
+
+## Methods
+
+#### isWorkday
+
+Verify if the day in question is a working day, based on defined calendars:
+
+```javascript
+var calendario = require('./src/calendario.js');
+calendario.use('BR');
+
+calendario.isWorkday(new Date('2015-05-01')); // false
+calendario.isWorkday(new Date('2015-05-01')); // true
+```
 
 ## Contributing
 
