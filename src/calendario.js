@@ -16,10 +16,28 @@ Calendario.prototype.use = function(name, source) {
     if (sourceType === 'undefined') {
         this.setSource(name);
     } else if (sourceType === 'object') {
+        if (source instanceof Array) {
+            this.addSource(name, source);
+        }
         // this.parseSource(name, source);
-    } else if (sourceType === 'array') {
-        // this.addSource(name, source);
     }
+}
+
+Calendario.prototype.addSource = function(name, source) {
+    var events = new Array(),
+        ev = new Object();
+
+    source.forEach(function(sourceEvent) {
+        ev = {};
+        ev.workday = (typeof(sourceEvent.workday) === 'undefined' ? true : sourceEvent.workday);
+        ev.summary = sourceEvent.summary || '';
+        if (sourceEvent.date) {
+            ev.date = sourceEvent.date;
+            events.push(ev)
+        }
+    })
+
+    this.sources.push({source: name, events: events});
 }
 
 Calendario.prototype.setSource = function(name) {
@@ -57,7 +75,7 @@ Calendario.prototype.eventsList = function() {
 }
 
 Calendario.prototype.dayDiff = function(dateEarlier, dateLater) {
-    var dayTime = 1000*60*60*24;
+    var dayTime = 1000 * 60 * 60 * 24;
     return (Math.round((dateLater.getTime()-dateEarlier.getTime())/dayTime));
 }
 

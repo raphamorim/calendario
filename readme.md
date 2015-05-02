@@ -28,17 +28,16 @@ You can create your owns calendars, passing a array of objects like these:
 
 ```javascript
 var calendario = require('./src/calendario.js');
-calendario.use('BR');
-calendario.use('MozillaCalendar', function(set) {
-	set([
-		{date: new Date(2020, 11, 25), workday: true, description: "Mozilla Summit"},
-		{date: new Date(2021, 1, 20), workday: true, description: "Mozilla another event"},
-	]);
-});
+
+calendario.use('MozillaCalendar', [
+	{date: new Date(2020, 11, 25), workday: true, summary: "Mozilla Summit"}, 
+	{date: new Date(2021, 1, 20), workday: true, summary: "Mozilla another event"}
+]);
+
 calendario.use('GoogleCalendar', function(set) {
 	set([
-		{date: new Date(2017, 6, 3), workday: true, description: "Google IO"},
-		{date: new Date(2018, 10, 5), workday: true, description: "Google another event"},
+		{date: new Date(2017, 6, 3), workday: true, summary: "Google IO"},
+		{date: new Date(2018, 10, 5), workday: true, summary: "Google another event"},
 	]);
 });
 ```
