@@ -10,7 +10,7 @@ Before anything, you need to have [node](http://nodejs.org/) and [npm](https://w
 
 ## Usage
 
-Currently there are only national calendars
+Currently there are only **national** calendars. In next release will be added regional support.
 
 **Available for:**
 
