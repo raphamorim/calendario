@@ -1,12 +1,10 @@
 'use strict';
 
+var Range = require('../lib/range');
+
 function Calendario() {
     this.events = []; // [{date: 1, source: }, {date: 1, source: }]
     this.sources = [];
-}
-
-Calendario.prototype.parseSource = function(name, source) {
-    name = name.toUpperCase();
 }
 
 Calendario.prototype.use = function(name, source) {
@@ -14,13 +12,17 @@ Calendario.prototype.use = function(name, source) {
     var sourceType = typeof(source);
 
     if (sourceType === 'undefined') {
-        this.setSource(name);
+        this.useDefaultSource(name);
     } else if (sourceType === 'object') {
         if (source instanceof Array) {
             this.addSource(name, source);
         }
         // this.parseSource(name, source);
     }
+}
+
+Calendario.prototype.parseSource = function(name, source) {
+    // some function
 }
 
 Calendario.prototype.addSource = function(name, source) {
@@ -40,7 +42,7 @@ Calendario.prototype.addSource = function(name, source) {
     this.sources.push({source: name, events: events});
 }
 
-Calendario.prototype.setSource = function(name) {
+Calendario.prototype.useDefaultSource = function(name) {
     var events = [],
         date;
 
@@ -79,6 +81,19 @@ Calendario.prototype.dayDiff = function(dateEarlier, dateLater) {
     return (Math.round((dateLater.getTime()-dateEarlier.getTime())/dayTime));
 }
 
+Calendario.prototype.aboutDay = function(date) {
+    var self = this,
+        events = this.eventList(),
+        day = []; 
+
+    events.forEach(function(ev) {
+        if (self.dayDiff(date, ev.date) === 0)
+            day.push(ev);
+    })
+
+    return day;
+}
+
 Calendario.prototype.isWorkday = function(date) {
     var self = this,
         events = this.eventList(),
@@ -90,6 +105,10 @@ Calendario.prototype.isWorkday = function(date) {
     })
 
     return workday;
+}
+
+Calendario.prototype.range = function() {
+    return new Range(this);
 }
 
 module.exports = new Calendario();
