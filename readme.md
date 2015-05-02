@@ -14,8 +14,8 @@ Currently there are only **national** calendars. In next release will be added r
 
 **Available for:**
 
-- Brazil
-- United States of America
+- Brazil `.use('BR')`
+- United States of America `.use('US')`
 
 You can set the calendar using `use()`
 
@@ -55,6 +55,52 @@ calendario.use('BR');
 calendario.isWorkday(new Date('2015-05-01')); // false
 calendario.isWorkday(new Date('2015-05-01')); // true
 ```
+
+#### aboutDay
+
+Get all events about specified day:
+
+```javascript
+var calendario = require('calendario');
+calendario.use('US');
+
+calendario.aboutDay(new Date('2015-12-25'))
+/*
+[ { date: Fri Dec 25 2015 00:00:00 GMT-0200 (BRST),
+    summary: 'Christmas Day',
+    workday: false } ]
+*/
+```
+
+#### range
+
+Get all events from a specified begin to a specified end:
+
+```javascript
+var calendario = require('calendario');
+calendario.use('US');
+
+var range = calendario.range()
+		.begin(new Date('2015-12-20'))
+		.end(new Date('2016-01-05'))
+		.toArray();
+
+/*
+[ { date: Thu Dec 24 2015 00:00:00 GMT-0200 (BRST),
+    summary: 'Christmas Eve (from 2pm)',
+    workday: false },
+  { date: Fri Dec 25 2015 00:00:00 GMT-0200 (BRST),
+    summary: 'Christmas Day',
+    workday: false },
+  { date: Thu Dec 31 2015 00:00:00 GMT-0200 (BRST),
+    summary: 'New Year\'s Eve (from 2pm)',
+    workday: false },
+  { date: Fri Jan 01 2016 00:00:00 GMT-0200 (BRST),
+    summary: 'New Year\'s Day',
+    workday: false } ]
+*/
+```
+
 
 #### sourceList
 
