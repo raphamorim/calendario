@@ -64,7 +64,7 @@ Calendario.prototype.sourceList = function() {
     return this.sources.map(function(a,b) { return a['source'] });
 }
 
-Calendario.prototype.eventsList = function() {
+Calendario.prototype.eventList = function() {
     var events = this.sources.map(function(a,b) { return a['events'] }),
         eventsList = [];
 
@@ -81,7 +81,7 @@ Calendario.prototype.dayDiff = function(dateEarlier, dateLater) {
 
 Calendario.prototype.isWorkday = function(date) {
     var self = this,
-        events = this.eventsList(),
+        events = this.eventList(),
         workday = true;
 
     events.forEach(function(ev) {
