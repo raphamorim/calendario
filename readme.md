@@ -20,14 +20,14 @@ Currently there are only **national** calendars. In next release will be added r
 You can set the calendar using `use()`
 
 ```javascript
-var calendario = require('./src/calendario.js');
+var calendario = require('calendario');
 calendario.use('BR');
 ```
 
 You can create your owns calendars, passing a array of objects like these:
 
 ```javascript
-var calendario = require('./src/calendario.js');
+var calendario = require('calendario');
 
 calendario.use('MozillaCalendar', [
 	{date: new Date('2020-11-25'), workday: true, summary: "Mozilla Summit"}, 
@@ -49,7 +49,7 @@ calendario.use('GoogleCalendar', function(set) {
 Verify if the day in question is a working day, based on defined calendar sources:
 
 ```javascript
-var calendario = require('./src/calendario.js');
+var calendario = require('calendario');
 calendario.use('BR');
 
 calendario.isWorkday(new Date('2015-05-01')); // false
@@ -61,7 +61,7 @@ calendario.isWorkday(new Date('2015-05-01')); // true
 Return all defined calendars as source:
 
 ```javascript
-var calendario = require('./src/calendario.js');
+var calendario = require('calendario');
 calendario.use('EN');
 calendario.use('BR');
 
@@ -73,7 +73,7 @@ calendario.sourceList(); // ['EN', 'BR']
 Return the events from all sources:
 
 ```javascript
-var calendario = require('./src/calendario.js');
+var calendario = require('calendario');
 calendario.use('MozillaCalendar', [
 	{date: new Date('2020-11-25'), workday: true, summary: "Mozilla Summit"}, 
 	{date: new Date('2021-1-20'), workday: true, summary: "Mozilla another event"}
