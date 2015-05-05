@@ -66,6 +66,10 @@ Calendario.prototype.sourceList = function() {
     return this.sources.map(function(a,b) { return a['source'] });
 }
 
+Calendario.prototype.clean = function() {
+    this.sources = [];
+}
+
 Calendario.prototype.eventList = function() {
     var events = this.sources.map(function(a,b) { return a['events'] }),
         eventsList = [];

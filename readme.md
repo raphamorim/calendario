@@ -101,7 +101,6 @@ var range = calendario.range()
 */
 ```
 
-
 #### sourceList
 
 Return all defined calendars as source:
@@ -134,6 +133,16 @@ calendario.eventList();
     summary: 'Mozilla another event',
     date: Wed Jan 20 2021 00:00:00 GMT-0200 (BRST) } ]
 */
+```
+
+#### clean
+
+Clean and remove all previously defined sources:
+
+```javascript
+var calendario = require('calendario');
+calendario.use('BR'); // Sources: ['BR']
+calendario.clean(); // Sources: []
 ```
 
 ## Contributing
