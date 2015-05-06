@@ -43,7 +43,7 @@ describe('aboutDay()', function() {
 
 					var expected = {
 						date: new Date('2015-12-25 00:00:00'),
-						summary: 'Christmas Day',
+						summary: 'Natal',
 						workday: false
 					}
 
