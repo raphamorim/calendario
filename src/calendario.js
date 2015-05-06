@@ -12,7 +12,15 @@ Calendario.prototype.use = function(name, source) {
     var sourceType = typeof(source);
 
     if (sourceType === 'undefined') {
-        this.useDefaultSource(name);
+        if (name.indexOf('-') > -1) {    
+            name = name.split('-');
+            source = require('../calendars/' + name[0] + 
+                '/states/' + name.join('-'));
+            name = name.join('-');
+            this.addSource(name, source);
+        } else {
+            this.useDefaultSource(name);
+        }
     } else if (sourceType === 'object') {
         if (source instanceof Array) {
             this.addSource(name, source);
