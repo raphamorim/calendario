@@ -8,7 +8,7 @@ describe('aboutDay()', function() {
 				it('should get data about christmas event', function(done) {
 					calendario.clean();
 					calendario.use('US');
-					var christmas = calendario.aboutDay(new Date('2015-12-25'));
+					var christmas = calendario.aboutDay(new Date('2015-12-25 00:00:00'));
 
 					var expected = {
 						date: new Date('2015-12-25 00:00:00'),
@@ -26,7 +26,7 @@ describe('aboutDay()', function() {
 				it('should get a empty array', function(done) {
 					calendario.clean();
 					calendario.use('US');
-					var nonEvent = calendario.aboutDay(new Date('2015-10-05'));
+					var nonEvent = calendario.aboutDay(new Date('2015-10-05 00:00:00'));
 
 					assert.deepEqual(nonEvent.length, 0);
 					assert.deepEqual(nonEvent, [])
@@ -39,7 +39,7 @@ describe('aboutDay()', function() {
 				it('should get data about christmas event', function(done) {
 					calendario.clean();
 					calendario.use('BR');
-					var christmas = calendario.aboutDay(new Date('2015-12-25'));
+					var christmas = calendario.aboutDay(new Date('2015-12-25 00:00:00'));
 
 					var expected = {
 						date: new Date('2015-12-25 00:00:00'),
@@ -57,7 +57,7 @@ describe('aboutDay()', function() {
 				it('should get a empty array', function(done) {
 					calendario.clean();
 					calendario.use('BR');
-					var nonEvent = calendario.aboutDay(new Date('2015-10-05'));
+					var nonEvent = calendario.aboutDay(new Date('2015-10-05 00:00:00'));
 
 					assert.deepEqual(nonEvent.length, 0);
 					assert.deepEqual(nonEvent, [])

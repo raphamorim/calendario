@@ -88,6 +88,16 @@ Calendario.prototype.eventList = function() {
     return eventsList;
 }
 
+Calendario.prototype.sameDay = function(dateEarlier, dateLater) {
+    var earlier = dateEarlier.getDate() + '-' + dateEarlier.getMonth() + '-' + dateEarlier.getFullYear(),
+        later = dateLater.getDate() + '-' + dateLater.getMonth() + '-' + dateLater.getFullYear();
+
+    if (earlier === later) 
+        return true;
+
+    return false;
+}
+
 Calendario.prototype.dayDiff = function(dateEarlier, dateLater) {
     var dayTime = 1000 * 60 * 60 * 24;
     return (Math.round((dateLater.getTime()-dateEarlier.getTime())/dayTime));
@@ -99,7 +109,7 @@ Calendario.prototype.aboutDay = function(date) {
         day = []; 
 
     events.forEach(function(ev) {
-        if (self.dayDiff(date, ev.date) === 0)
+        if (self.sameDay(date, ev.date))
             day.push(ev);
     })
 
@@ -112,7 +122,7 @@ Calendario.prototype.isWorkday = function(date) {
         workday = true;
 
     events.forEach(function(ev) {
-        if (self.dayDiff(date, ev.date) === 0)
+        if (self.sameDay(date, ev.date))
             workday = ev.workday
     })
 
