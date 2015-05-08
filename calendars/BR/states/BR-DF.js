@@ -1,3 +1,14 @@
-var state = [];
+var state = [
+	{
+		date: new Date('2015-04-21'),
+		workday: false,
+		summary: "Fundação de Brasília"
+	},
+	{
+		date: new Date('2015-11-30'),
+		workday: false,
+		summary: "Dia do Evangélico"
+	}
+];
 
 module.exports = state;
