@@ -24,6 +24,7 @@ Currently there are only **national** calendars (except for Brazil calendar). In
 - Brazil `.use('BR')`
   - [See usage for brazilian states](docs/BR/states.md)
 - United States of America `.use('US')`
+  - [See usage for U.S. states and territories](docs/US/states.md)
 
 You can set the calendar using `use()`
 

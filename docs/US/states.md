@@ -1,0 +1,26 @@
+# States / Estados
+
+- United States `.use('US')`
+  - Alabama `.use('US-AL')`
+  - Alaska `.use('US-AK')`
+  - California `.use('US-CA')`
+  - Connecticut `.use('US-CT')`
+  - Florida `.use('US-FL')`
+  - Georgia `.use('US-GA')`
+  - Hawaii `.use('US-HI')`
+  - Idaho `.use('US-ID')`
+  - Illinois `.use('US-IL')`
+  - Iowa `.use('US-IA')`
+  - Massachusetts `.use('US-MA')`
+  - Missouri `.use('US-MO')`
+  - New Jersey `.use('US-NJ')`
+  - New York `.use('US-NY')`
+  - Pennsylvania `.use('US-PA')`
+  - South Carolina `.use('US-SC')`
+  - Utah `.use('US-UT')`
+  - West Virginia `.use('US-WV')`
+  - Wisconsin `.use('US-WI')`
+- Territores
+  - District of Columbia `.use('US-DC')`
+  - Guam `.use('US-GU')`
+  - Virgin Islands `.use('US-VI')`
