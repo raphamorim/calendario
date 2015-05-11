@@ -17,34 +17,8 @@ Atualmente as fontes suportam apenas eventos nacionais (com excessão do Brasil)
 **Disponível para:**
 
 - Brazil `.use('BR')`
-  - Acre `.use('BR-AC')`
-  - Alagoas `.use('BR-AL')`
-  - Amapá `.use('BR-AP')`
-  - Amazonas `.use('BR-AM')`
-  - Bahia `.use('BR-BA')`
-  - Ceará `.use('BR-CE')`
-  - Distrito Federal `.use('BR-DF')`
-  - Espírito Santo `.use('BR-ES')`
-  - Goiás `.use('BR-GO')`
-  - Maranhão `.use('BR-MA')`
-  - Mato Grosso `.use('BR-MT')`
-  - Mato Grosso do Sul `.use('BR-MS')`
-  - Minas Gerais `.use('BR-MG')`
-  - Pará `.use('BR-PA')`
-  - Paraíba `.use('BR-PB')`
-  - Paraná `.use('BR-PR')`
-  - Pernambuco `.use('BR-PE')`
-  - Piauí `.use('BR-PI')`
-  - Rio de Janeiro `.use('BR-RJ')`
-  - Rio Grande do Norte `.use('BR-RN')`
-  - Rio Grande do Sul `.use('BR-RS')`
-  - Rondônia `.use('BR-RO')`
-  - Roraima `.use('BR-RR')`
-  - Santa Catarina `.use('BR-SC')`
-  - São Paulo `.use('BR-SP')`
-  - Sergipe `.use('BR-SE')`
-  - Tocantins `.use('BR-TO')`
-- United States of America `.use('US')`
+  - [Ver uso para o estados brasileiros](BR/states.md)
+- Estados Unidos da America `.use('US')`
 
 Você pode definir a fonte que irá utilizar usando `use()`
 
