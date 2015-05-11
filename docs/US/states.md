@@ -20,7 +20,7 @@
   - Utah `.use('US-UT')`
   - West Virginia `.use('US-WV')`
   - Wisconsin `.use('US-WI')`
-- Territores
+- Territories
   - District of Columbia `.use('US-DC')`
   - Guam `.use('US-GU')`
   - Virgin Islands `.use('US-VI')`
