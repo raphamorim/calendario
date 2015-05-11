@@ -61,7 +61,7 @@ var calendario = require('calendario');
 calendario.use('BR');
 
 calendario.isWorkday(new Date('2015-05-01')); // false
-calendario.isWorkday(new Date('2015-05-01')); // true
+calendario.isWorkday(new Date('2015-05-02')); // true
 ```
 
 #### aboutDay
