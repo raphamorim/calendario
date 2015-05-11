@@ -2,6 +2,9 @@
 
 > Verifique dias de trabalho, feriados, finais de semanda ou crie seus próprios eventos.
 
+[![NPM Version](https://img.shields.io/npm/v/express.svg?style=flat)](https://www.npmjs.org/package/calendario)
+[![Build Status](https://api.travis-ci.org/raphamorim/calendario.svg)](https://travis-ci.org/raphamorim/calendario)
+
 ## Instalação
 
 Antes de qualquer coisa, você deve ter o [node](http://nodejs.org/) e o [npm](https://www.npmjs.org/) instalados.

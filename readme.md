@@ -2,6 +2,9 @@
 
 > Verify workdays, holidays, weekends or create events and make your own events
 
+[![NPM Version](https://img.shields.io/npm/v/express.svg?style=flat)](https://www.npmjs.org/package/calendario)
+[![Build Status](https://api.travis-ci.org/raphamorim/calendario.svg)](https://travis-ci.org/raphamorim/calendario)
+
 Available too: [brazilian portuguese](docs/PT-BR.md).
 
 ## Install
