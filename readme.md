@@ -1,6 +1,6 @@
 # calendario
 
-> Verify workdays, holidays, weekends or create events and make your own events
+> Check if a day is a workday or holiday.
 
 [![NPM Version](https://img.shields.io/npm/v/express.svg?style=flat)](https://www.npmjs.org/package/calendario)
 [![Build Status](https://api.travis-ci.org/raphamorim/calendario.svg)](https://travis-ci.org/raphamorim/calendario)
