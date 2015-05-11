@@ -1,25 +1,22 @@
 # calendario
 
-> Verify workdays, holidays, weekends or create events and make your own events
+> Verifique dias de trabalho, feriados, finais de semanda ou crie seus próprios eventos.
 
-For brazilian users, see documentation in [brazilian portuguese](docs/PT-BR.md).
+## Instalação
 
-## Install
-
-Before anything, you need to have [node](http://nodejs.org/) and [npm](https://www.npmjs.org/) installed.
+Antes de qualquer coisa, você deve ter o [node](http://nodejs.org/) e o [npm](https://www.npmjs.org/) instalados.
 
 ```sh
 $ npm install calendario
 ```
 
-## Usage
+## Uso
 
-Currently there are only **national** calendars (except for Brazil calendar). In next release will be added regional support.
+Atualmente os calendários suportam apenas eventos nacionais (com excessão do Brasil). Na próxima release será adicionado o suporte regional e mais calendários nacionais e regionais.
 
-**Available for:**
+**Disponível para:**
 
 - Brazil `.use('BR')`
-  - Brazil `.use('BR')`
   - Acre `.use('BR-AC')`
   - Alagoas `.use('BR-AL')`
   - Amapá `.use('BR-AP')`
@@ -49,36 +46,36 @@ Currently there are only **national** calendars (except for Brazil calendar). In
   - Tocantins `.use('BR-TO')`
 - United States of America `.use('US')`
 
-You can set the calendar using `use()`
+Você pode definir o calendário que irá utilizar usando `use()`
 
 ```javascript
 var calendario = require('calendario');
 calendario.use('BR');
 ```
 
-You can create your owns calendars, passing a array of objects like these:
+Você também pode criar seus próprios calendários, passando um array de objetos:
 
 ```javascript
 var calendario = require('calendario');
 
 calendario.use('MozillaCalendar', [
-	{date: new Date('2020-11-25'), workday: true, summary: "Mozilla Summit"},
-	{date: new Date('2021-1-20'), workday: true, summary: "Mozilla another event"}
+  {date: new Date('2020-11-25'), workday: true, summary: "Mozilla Summit"},
+  {date: new Date('2021-1-20'), workday: true, summary: "Mozilla another event"}
 ]);
 
 calendario.use('GoogleCalendar', function(set) {
-	set([
-		{date: new Date('2017-6-3'), workday: true, summary: "Google IO"},
-		{date: new Date('2018-10-5'), workday: true, summary: "Google another event"},
-	]);
+  set([
+    {date: new Date('2017-6-3'), workday: true, summary: "Google IO"},
+    {date: new Date('2018-10-5'), workday: true, summary: "Google another event"},
+  ]);
 });
 ```
 
-## Methods
+## Métodos
 
 #### isWorkday
 
-Verify if the day in question is a working day, based on defined calendar sources:
+Verifica se o dia em questão é um dia de trabalho, baseado nos calendários definidos.
 
 ```javascript
 var calendario = require('calendario');
@@ -90,7 +87,7 @@ calendario.isWorkday(new Date('2015-05-01')); // true
 
 #### aboutDay
 
-Get all events about specified day:
+Retorna todos os eventos de um dia específico:
 
 ```javascript
 var calendario = require('calendario');
@@ -106,16 +103,16 @@ calendario.aboutDay(new Date('2015-12-25'))
 
 #### range
 
-Get all events from a specified begin to a specified end:
+Retorna todos os eventos de um começo específico até um fim específico:
 
 ```javascript
 var calendario = require('calendario');
 calendario.use('US');
 
 var range = calendario.range()
-		.begin(new Date('2015-12-20'))
-		.end(new Date('2016-01-05'))
-		.toArray();
+    .begin(new Date('2015-12-20'))
+    .end(new Date('2016-01-05'))
+    .toArray();
 
 /*
 [ { date: Thu Dec 24 2015 00:00:00 GMT-0200 (BRST),
@@ -135,7 +132,7 @@ var range = calendario.range()
 
 #### sourceList
 
-Return all defined calendars as source:
+Retorna todos os calendários que foram definidos como fonte:
 
 ```javascript
 var calendario = require('calendario');
@@ -147,13 +144,13 @@ calendario.sourceList(); // ['EN', 'BR']
 
 #### eventList
 
-Return the events from all sources:
+Retorna todos os eventos das fontes definidas:
 
 ```javascript
 var calendario = require('calendario');
 calendario.use('MozillaCalendar', [
-	{date: new Date('2020-11-25'), workday: true, summary: "Mozilla Summit"},
-	{date: new Date('2021-1-20'), workday: true, summary: "Mozilla another event"}
+  {date: new Date('2020-11-25'), workday: true, summary: "Mozilla Summit"},
+  {date: new Date('2021-1-20'), workday: true, summary: "Mozilla another event"}
 ]);
 
 calendario.eventList();
@@ -169,7 +166,7 @@ calendario.eventList();
 
 #### clean
 
-Clean and remove all previously defined sources:
+Limpa e remove todos as fontes anteriormente definidas:
 
 ```javascript
 var calendario = require('calendario');
@@ -177,27 +174,27 @@ calendario.use('BR'); // Sources: ['BR']
 calendario.clean(); // Sources: []
 ```
 
-## Data Source
+## Fonte de Dados
 
 #### Brazil
 
-- National Events: Google Calendar; ID: `pt-br.brazilian#holiday@group.v.calendar.google.com`
-- Regional Events: [Wikipedia](http://pt.wikipedia.org/wiki/Feriados_no_Brasil#Festas_m.C3.B3veis)
+- Eventos nacionais: Google Calendar; ID: `pt-br.brazilian#holiday@group.v.calendar.google.com`
+- Eventos estaduais: [Wikipedia](http://pt.wikipedia.org/wiki/Feriados_no_Brasil#Festas_m.C3.B3veis)
 
 #### United States of America
 
-- National Events: Google Calendar; ID: `en.usa#holiday@group.v.calendar.google.com`
+- Eventos nacionais: Google Calendar; ID: `en.usa#holiday@group.v.calendar.google.com`
 
-## Contributing
+## Contribuindo
 
-Don't be shy, send a Pull Request! Here is how:
+Não seja tímido, envie um Pull Request! Veja como:
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+1. Fork o projeto!
+2. Crie sua feature branch: `git checkout -b my-new-feature`
+3. Faça um commit para suas mudanças: `git commit -m 'Adicionar alguma funcionalidade'`
+4. Faça um push para o branch: `git push origin my-new-feature`
+5. Dê submit do pull request :D
 
-## About
+## Sobre
 
-**License:** MIT ® [Raphael Amorim](https://github.com/raphamorim)
+**Licença:** MIT ® [Raphael Amorim](https://github.com/raphamorim)
