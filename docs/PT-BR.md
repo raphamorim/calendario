@@ -12,7 +12,7 @@ $ npm install calendario
 
 ## Uso
 
-Atualmente os calendários suportam apenas eventos nacionais (com excessão do Brasil). Na próxima release será adicionado o suporte regional e mais calendários nacionais e regionais.
+Atualmente as fontes suportam apenas eventos nacionais (com excessão do Brasil). Na próxima release será adicionado mais fontes nacionais e regionais.
 
 **Disponível para:**
 
@@ -46,14 +46,14 @@ Atualmente os calendários suportam apenas eventos nacionais (com excessão do B
   - Tocantins `.use('BR-TO')`
 - United States of America `.use('US')`
 
-Você pode definir o calendário que irá utilizar usando `use()`
+Você pode definir a fonte que irá utilizar usando `use()`
 
 ```javascript
 var calendario = require('calendario');
 calendario.use('BR');
 ```
 
-Você também pode criar seus próprios calendários, passando um array de objetos:
+Você também pode criar suas próprias fontes, passando um array de objetos:
 
 ```javascript
 var calendario = require('calendario');
@@ -75,7 +75,7 @@ calendario.use('GoogleCalendar', function(set) {
 
 #### isWorkday
 
-Verifica se o dia em questão é um dia de trabalho, baseado nos calendários definidos.
+Verifica se o dia em questão é um dia de trabalho ou feriado, baseado nas fontes definidas.
 
 ```javascript
 var calendario = require('calendario');
@@ -87,7 +87,7 @@ calendario.isWorkday(new Date('2015-05-01')); // true
 
 #### aboutDay
 
-Retorna todos os eventos de um dia específico:
+Retorna todos os eventos de um dia:
 
 ```javascript
 var calendario = require('calendario');
@@ -103,7 +103,7 @@ calendario.aboutDay(new Date('2015-12-25'))
 
 #### range
 
-Retorna todos os eventos de um começo específico até um fim específico:
+Retorna todos os eventos específicados de um começo até um fim:
 
 ```javascript
 var calendario = require('calendario');
@@ -144,7 +144,7 @@ calendario.sourceList(); // ['EN', 'BR']
 
 #### eventList
 
-Retorna todos os eventos das fontes definidas:
+Retorna todos os eventos:
 
 ```javascript
 var calendario = require('calendario');
@@ -166,7 +166,7 @@ calendario.eventList();
 
 #### clean
 
-Limpa e remove todos as fontes anteriormente definidas:
+Remove todos as fontes definidas:
 
 ```javascript
 var calendario = require('calendario');
@@ -176,12 +176,12 @@ calendario.clean(); // Sources: []
 
 ## Fonte de Dados
 
-#### Brazil
+#### Brasil
 
 - Eventos nacionais: Google Calendar; ID: `pt-br.brazilian#holiday@group.v.calendar.google.com`
 - Eventos estaduais: [Wikipedia](http://pt.wikipedia.org/wiki/Feriados_no_Brasil#Festas_m.C3.B3veis)
 
-#### United States of America
+#### Estados Unidos da America
 
 - Eventos nacionais: Google Calendar; ID: `en.usa#holiday@group.v.calendar.google.com`
 
@@ -189,11 +189,11 @@ calendario.clean(); // Sources: []
 
 Não seja tímido, envie um Pull Request! Veja como:
 
-1. Fork o projeto!
+1. Faça um fork do projeto!
 2. Crie sua feature branch: `git checkout -b my-new-feature`
 3. Faça um commit para suas mudanças: `git commit -m 'Adicionar alguma funcionalidade'`
 4. Faça um push para o branch: `git push origin my-new-feature`
-5. Dê submit do pull request :D
+5. Agora é só dar submit do pull request e ser feliz :D
 
 ## Sobre
 

@@ -2,7 +2,7 @@
 
 > Verify workdays, holidays, weekends or create events and make your own events
 
-For brazilian users, see documentation in [brazilian portuguese](docs/PT-BR.md).
+Available too: [brazilian portuguese](docs/PT-BR.md).
 
 ## Install
 
