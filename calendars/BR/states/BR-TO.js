@@ -1,11 +1,11 @@
 var state = [
 	{
-		date: new Date('2015-01-01'),
+		date: new Date('2015-03-18'),
 		workday: false,
-		summary: "Instalação de Tocantins"
+		summary: "Autonomia do Estado (criação da Comarca do Norte)"
 	},
 	{
-		date: new Date('2015-08-09'),
+		date: new Date('2015-09-08'),
 		workday: false,
 		summary: "Dia da Nossa Senhora da Natividade"
 	},

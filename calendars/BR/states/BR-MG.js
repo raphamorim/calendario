@@ -1,8 +1,8 @@
 var state = [
 	{
-		date: new Date('2015-11-20'),
+		date: new Date('2015-04-21'),
 		workday: false,
-		summary: "Consciência Negra"
+		summary: "Data magna do estado"
 	}
 ];
 
