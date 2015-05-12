@@ -143,14 +143,14 @@ calendario.eventList();
 */
 ```
 
-#### clean
+#### clear
 
-Clean and remove all previously defined sources:
+Clear and remove all previously defined sources:
 
 ```javascript
 var calendario = require('calendario');
 calendario.use('BR'); // Sources: ['BR']
-calendario.clean(); // Sources: []
+calendario.clear(); // Sources: []
 ```
 
 ## Data Source

@@ -74,7 +74,7 @@ Calendario.prototype.sourceList = function() {
     return this.sources.map(function(a,b) { return a['source'] });
 }
 
-Calendario.prototype.clean = function() {
+Calendario.prototype.clear = function() {
     this.sources = [];
 }
 

@@ -6,7 +6,7 @@ describe('aboutDay()', function() {
 		context("US • United States National", function() {
 			context('- using Christmas', function() {
 				it('should get data about christmas event', function(done) {
-					calendario.clean();
+					calendario.clear();
 					calendario.use('US');
 					var christmas = calendario.aboutDay(new Date('2015-12-25 00:00:00'));
 
@@ -24,7 +24,7 @@ describe('aboutDay()', function() {
 			});
 			context('- using NonEvent', function() {
 				it('should get a empty array', function(done) {
-					calendario.clean();
+					calendario.clear();
 					calendario.use('US');
 					var nonEvent = calendario.aboutDay(new Date('2015-10-05 00:00:00'));
 
@@ -37,7 +37,7 @@ describe('aboutDay()', function() {
 		context('BR • Brazil National', function() {
 			context('- using Christmas', function() {
 				it('should get data about christmas event', function(done) {
-					calendario.clean();
+					calendario.clear();
 					calendario.use('BR');
 					var christmas = calendario.aboutDay(new Date('2015-12-25 00:00:00'));
 
@@ -55,7 +55,7 @@ describe('aboutDay()', function() {
 			});
 			context('- using NonEvent', function() {
 				it('should get a empty array', function(done) {
-					calendario.clean();
+					calendario.clear();
 					calendario.use('BR');
 					var nonEvent = calendario.aboutDay(new Date('2015-10-05 00:00:00'));
 
