@@ -15,19 +15,27 @@ $ npm install calendario
 
 ## Uso
 
-Atualmente as fontes suportam apenas eventos nacionais (com excessão do Brasil). Na próxima release será adicionado mais fontes nacionais e regionais.
+Atualmente as fontes suportam apenas eventos nacionais (com excessão do Brasil e Estados Unidos). Na próxima release será adicionado mais fontes nacionais e regionais.
 
 **Disponível para:**
 
 - Brazil `.use('BR')`
   - [Ver uso para o estados brasileiros](BR/states.md)
 - Estados Unidos da America `.use('US')`
+  - [Ver uso para estados americanos](docs/US/states.md)
 
 Você pode definir a fonte que irá utilizar usando `use()`
 
 ```javascript
 var calendario = require('calendario');
 calendario.use('BR');
+```
+
+Definindo a fonte para um estado específico
+
+```javascript
+var calendario = require('calendario');
+calendario.use('US-IL');
 ```
 
 Você também pode criar suas próprias fontes, passando um array de objetos:
@@ -113,10 +121,10 @@ Retorna todos os calendários que foram definidos como fonte:
 
 ```javascript
 var calendario = require('calendario');
-calendario.use('EN');
+calendario.use('US');
 calendario.use('BR');
 
-calendario.sourceList(); // ['EN', 'BR']
+calendario.sourceList(); // ['US', 'BR']
 ```
 
 #### eventList
@@ -161,6 +169,7 @@ calendario.clean(); // Sources: []
 #### Estados Unidos da America
 
 - Eventos nacionais: Google Calendar; ID: `en.usa#holiday@group.v.calendar.google.com`
+- Eventos estaduais: [Wikipedia](http://en.wikipedia.org/wiki/Public_holidays_in_the_United_States#Legal_holidays_by_states_and_political_divisions_of_the_United_States)
 
 ## Contribuindo
 

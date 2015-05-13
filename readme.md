@@ -17,19 +17,27 @@ $ npm install calendario
 
 ## Usage
 
-Currently there are only **national** calendars (except for Brazil calendar). In next release will be added regional support.
+Currently there are only **national** calendars (except for Brazil and U.S.A). In next release will be added regional support.
 
 **Available for:**
 
 - Brazil `.use('BR')`
   - [See usage for brazilian states](docs/BR/states.md)
 - United States of America `.use('US')`
+  - [See usage for U.S. states and territories](docs/US/states.md)
 
 You can set the calendar using `use()`
 
 ```javascript
 var calendario = require('calendario');
 calendario.use('BR');
+```
+
+Setting the calendar for a specific state
+
+```javascript
+var calendario = require('calendario');
+calendario.use('US-IL');
 ```
 
 You can create your owns calendars, passing a array of objects like these:
@@ -115,10 +123,10 @@ Return all defined calendars as source:
 
 ```javascript
 var calendario = require('calendario');
-calendario.use('EN');
+calendario.use('US');
 calendario.use('BR');
 
-calendario.sourceList(); // ['EN', 'BR']
+calendario.sourceList(); // ['US', 'BR']
 ```
 
 #### eventList
@@ -163,6 +171,7 @@ calendario.clear(); // Sources: []
 #### United States of America
 
 - National Events: Google Calendar; ID: `en.usa#holiday@group.v.calendar.google.com`
+- Regional Events: [Wikipedia](http://en.wikipedia.org/wiki/Public_holidays_in_the_United_States#Legal_holidays_by_states_and_political_divisions_of_the_United_States)
 
 ## Contributing
 
