@@ -19,5 +19,8 @@
   "homepage": "https://github.com/raphamorim/calendario",
   "devDependencies": {
     "mocha": "^2.2.1"
+  },
+  "dependencies": {
+    "ical2json": "^0.2.0"
   }
 }

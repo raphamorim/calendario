@@ -1,6 +1,8 @@
 'use strict';
 
-var Range = require('../lib/range');
+var Range = require('./range'),
+    ical = require('ical2json'),
+    fs = require('fs');
 
 function Calendario() {
     this.events = []; // [{date: 1, source: }, {date: 1, source: }]
@@ -17,23 +19,28 @@ Calendario.prototype.use = function(name, source) {
             source = require('../calendars/' + name[0] + 
                 '/states/' + name.join('-'));
             name = name.join('-');
-            this.addSource(name, source);
+            this.useObjectSource(name, source);
         } else {
             this.useDefaultSource(name);
         }
     } else if (sourceType === 'object') {
         if (source instanceof Array) {
-            this.addSource(name, source);
+            this.useObjectSource(name, source);
+        } else {
+            this.parseSource(name, source);
         }
-        // this.parseSource(name, source);
     }
 }
 
 Calendario.prototype.parseSource = function(name, source) {
-    // some function
+    var data = fs.readFileSync(source.file, 'utf-8');
+    if (source.parser === 'ics') { 
+        data = ical.convert(data);
+        this.useDefaultSource(name, data);
+    }
 }
 
-Calendario.prototype.addSource = function(name, source) {
+Calendario.prototype.useObjectSource = function(name, source) {
     var events = new Array(),
         ev = new Object();
 
@@ -50,11 +57,12 @@ Calendario.prototype.addSource = function(name, source) {
     this.sources.push({source: name, events: events});
 }
 
-Calendario.prototype.useDefaultSource = function(name) {
+Calendario.prototype.useDefaultSource = function(name, data) {
     var events = [],
         date;
 
-    var data = require('../calendars/' + name + '/' + name + '.json');
+    if (!data)
+        data = require('../calendars/' + name + '/' + name + '.json');
         
     data = data['VCALENDAR'][0]['VEVENT'];
     data.forEach(function(ev) {
