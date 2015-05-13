@@ -1,13 +1,13 @@
 var state = [
 	{
-		date: new Date('2015-02-12 00:00:00'),
+		date: new Date('2015-01-19 00:00:00'),
 		workday: false,
-		summary: "Lincoln's Birthday"
+		summary: "Robert E. Lee/Martin Luther King Birthday"
 	},
 	{
-		date: new Date('2015-02-15 00:00:00'),
+		date: new Date('2015-11-27 00:00:00'),
 		workday: false,
-		summary: "Susan B. Anthony Day"
+		summary: "Day After Thanksgiving"
 	},
 	{
 		date: new Date('2015-11-03 00:00:00'),
