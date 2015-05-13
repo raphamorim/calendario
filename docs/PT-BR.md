@@ -22,7 +22,7 @@ Atualmente as fontes suportam apenas eventos nacionais (com excessão do Brasil 
 - Brazil `.use('BR')`
   - [Ver uso para o estados brasileiros](BR/states.md)
 - Estados Unidos da America `.use('US')`
-  - [Ver uso para estados americanos](docs/US/states.md)
+  - [Ver uso para estados americanos](US/states.md)
 
 Você pode definir a fonte que irá utilizar usando `use()`
 
