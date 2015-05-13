@@ -35,7 +35,7 @@ Definindo a fonte para um estado específico
 
 ```javascript
 var calendario = require('calendario');
-calendario.use('US-IL');
+calendario.use('US-NY');
 ```
 
 Você também pode criar suas próprias fontes, passando um array de objetos:
@@ -54,6 +54,13 @@ calendario.use('GoogleCalendar', function(set) {
     {date: new Date('2018-10-5'), workday: true, summary: "Google another event"},
   ]);
 });
+```
+
+Você também pode criar suas próprias fontes, passando um arquivo `ics`
+
+```javascript
+var calendario = require('calendario');
+calendario.use('BR', {file: 'pt-br.ics', parser: 'ics'});
 ```
 
 ## Métodos

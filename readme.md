@@ -37,7 +37,7 @@ Setting the calendar for a specific state
 
 ```javascript
 var calendario = require('calendario');
-calendario.use('US-IL');
+calendario.use('US-NY');
 ```
 
 You can create your owns calendars, passing a array of objects like these:
@@ -57,6 +57,14 @@ calendario.use('GoogleCalendar', function(set) {
 	]);
 });
 ```
+
+You can create your own calendar, passing a `ics` file
+
+```javascript
+var calendario = require('calendario');
+calendario.use('BR', {file: 'pt-br.ics', parser: 'ics'});
+```
+
 
 ## Methods
 

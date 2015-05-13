@@ -1,7 +1,7 @@
 {
   "name": "calendario",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "Check if a day is a workday or holiday",
   "main": "index.js",
   "scripts": {
     "test": "make test"
@@ -10,7 +10,9 @@
     "type": "git",
     "url": "https://github.com/raphamorim/calendario"
   },
-  "keywords": [],
+  "keywords": [
+    "calendar", "holidays", "workdays", "ics", "ical"
+  ],
   "author": "Raphael Amorim",
   "license": "MIT",
   "bugs": {
