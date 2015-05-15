@@ -4,6 +4,7 @@
 
 [![NPM Version](https://img.shields.io/npm/v/express.svg?style=flat)](https://www.npmjs.org/package/calendario)
 [![Build Status](https://api.travis-ci.org/raphamorim/calendario.svg)](https://travis-ci.org/raphamorim/calendario)
+[![Coverage Status](https://coveralls.io/repos/raphamorim/calendario/badge.svg?branch=master)](https://coveralls.io/r/raphamorim/calendario?branch=master)
 
 Available too: [brazilian portuguese](docs/PT-BR.md).
 
