@@ -178,6 +178,10 @@ calendario.clean(); // Sources: []
 - Eventos nacionais: Google Calendar; ID: `en.usa#holiday@group.v.calendar.google.com`
 - Eventos estaduais: [Wikipedia](http://en.wikipedia.org/wiki/Public_holidays_in_the_United_States#Legal_holidays_by_states_and_political_divisions_of_the_United_States)
 
+## Changelog
+
+Veja o [Changelog](docs/changelog/changelog.md) para mais detalhes.
+
 ## Contribuindo
 
 Não seja tímido, envie um Pull Request! Veja como:

@@ -182,6 +182,11 @@ calendario.clear(); // Sources: []
 - National Events: Google Calendar; ID: `en.usa#holiday@group.v.calendar.google.com`
 - Regional Events: [Wikipedia](http://en.wikipedia.org/wiki/Public_holidays_in_the_United_States#Legal_holidays_by_states_and_political_divisions_of_the_United_States)
 
+
+## History
+
+See [Changelog](docs/changelog/changelog.md) for more details.
+
 ## Contributing
 
 Don't be shy, send a Pull Request! Here is how:
