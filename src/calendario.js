@@ -4,6 +4,10 @@ var Range = require('./range'),
     ical = require('ical2json'),
     fs = require('fs');
 
+function sameDay(date1, date2){
+    return date1.toDateString() === date2.toDateString();
+}
+
 function Calendario() {
     this.events = []; // [{date: 1, source: }, {date: 1, source: }]
     this.sources = [];
@@ -96,22 +100,17 @@ Calendario.prototype.eventList = function() {
     return eventsList;
 }
 
-Calendario.prototype.sameDay = function(dateEarlier, dateLater) {
-    return dateEarlier.toDateString() === dateLater.toDateString();
-}
-
 Calendario.prototype.dayDiff = function(dateEarlier, dateLater) {
     var dayTime = 1000 * 60 * 60 * 24;
     return (Math.round((dateLater.getTime()-dateEarlier.getTime())/dayTime));
 }
 
 Calendario.prototype.aboutDay = function(date) {
-    var self = this,
-        events = this.eventList(),
-        day = []; 
+    var events = this.eventList(),
+        day = [];
 
     events.forEach(function(ev) {
-        if (self.sameDay(date, ev.date))
+        if (sameDay(date, ev.date))
             day.push(ev);
     })
 
@@ -119,12 +118,11 @@ Calendario.prototype.aboutDay = function(date) {
 }
 
 Calendario.prototype.isWorkday = function(date) {
-    var self = this,
-        events = this.eventList(),
+    var events = this.eventList(),
         workday = true;
 
     events.forEach(function(ev) {
-        if (self.sameDay(date, ev.date))
+        if (sameDay(date, ev.date))
             workday = ev.workday
     })
 
