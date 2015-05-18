@@ -97,13 +97,7 @@ Calendario.prototype.eventList = function() {
 }
 
 Calendario.prototype.sameDay = function(dateEarlier, dateLater) {
-    var earlier = dateEarlier.getDate() + '-' + dateEarlier.getMonth() + '-' + dateEarlier.getFullYear(),
-        later = dateLater.getDate() + '-' + dateLater.getMonth() + '-' + dateLater.getFullYear();
-
-    if (earlier === later) 
-        return true;
-
-    return false;
+    return dateEarlier.toDateString() === dateLater.toDateString();
 }
 
 Calendario.prototype.dayDiff = function(dateEarlier, dateLater) {
