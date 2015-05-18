@@ -1,6 +1,6 @@
 # calendario
 
-> Verifique dias de trabalho, feriados, finais de semanda ou crie seus próprios eventos.
+> Verifique dias de trabalho, feriados, finais de semana ou crie seus próprios eventos.
 
 [![NPM Version](https://img.shields.io/npm/v/express.svg?style=flat)](https://www.npmjs.org/package/calendario)
 [![Build Status](https://api.travis-ci.org/raphamorim/calendario.svg)](https://travis-ci.org/raphamorim/calendario)
@@ -15,7 +15,7 @@ $ npm install calendario
 
 ## Uso
 
-Atualmente as fontes suportam apenas eventos nacionais (com excessão do Brasil e Estados Unidos). Na próxima release será adicionado mais fontes nacionais e regionais.
+Atualmente as fontes suportam apenas eventos nacionais (com exceção do Brasil e Estados Unidos). Na próxima release será adicionado mais fontes nacionais e regionais.
 
 **Disponível para:**
 
@@ -31,7 +31,7 @@ var calendario = require('calendario');
 calendario.use('BR');
 ```
 
-Definindo a fonte para um estado específico
+Definindo a fonte para um estado específico:
 
 ```javascript
 var calendario = require('calendario');
@@ -95,7 +95,7 @@ calendario.aboutDay(new Date('2015-12-25'))
 
 #### range
 
-Retorna todos os eventos específicados de um começo até um fim:
+Retorna todos os eventos especificados de um começo até um fim:
 
 ```javascript
 var calendario = require('calendario');
@@ -158,7 +158,7 @@ calendario.eventList();
 
 #### clean
 
-Remove todos as fontes definidas:
+Remove todas fontes definidas:
 
 ```javascript
 var calendario = require('calendario');
