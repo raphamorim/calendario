@@ -2,6 +2,85 @@ var assert = require('assert'),
 	calendario = require('../../index.js');
 
 describe('isWorkday()', function() {
+	context("Weekends", function() {
+		context('- when exists a workday in a weekend (saturday, sunday)', function() {
+			it('should get false', function(done) {
+				calendario.clear();
+				var arrayOfEvents = [
+					{
+						date: new Date('2015-06-27'), 
+						workday: true, 
+						summary: "Mozilla Summit on Saturday"
+					},
+					{
+						date: new Date('2015-06-28'), 
+						workday: true, 
+						summary: "Mozilla another on Sunday"
+					}
+				];
+
+				calendario.use('MozillaCalendar', arrayOfEvents);
+				var workdayOnSaturday = calendario.isWorkday(new Date('2015-06-27 01:00'));
+				var workdayOnSunday = calendario.isWorkday(new Date('2015-06-28 01:00'));
+
+				assert.equal(workdayOnSaturday, false);
+				assert.equal(workdayOnSunday, false);
+				done();
+			});
+		})
+		context('- ignore if a workday is weekend (saturday, sunday)', function() {
+			it('should get true', function(done) {
+				calendario.clear();
+				var arrayOfEvents = [
+					{
+						date: new Date('2015-06-27'), 
+						workday: true, 
+						summary: "Mozilla Summit on Saturday"
+					},
+					{
+						date: new Date('2015-06-28'), 
+						workday: true, 
+						summary: "Mozilla another on Sunday"
+					}
+				];
+
+				calendario.use('MozillaCalendar', arrayOfEvents);
+				calendario.ignoreWeekends();
+				var workdayOnSaturday = calendario.isWorkday(new Date('2015-06-27 01:00'));
+				var workdayOnSunday = calendario.isWorkday(new Date('2015-06-28 01:00'));
+
+				assert.equal(workdayOnSaturday, true);
+				assert.equal(workdayOnSunday, true);
+				done();
+			});
+		})
+		context('- set if a workday is a weekend, must don\'t be a workday (saturday, sunday)', function() {
+			it('should get false', function(done) {
+				calendario.clear();
+				var arrayOfEvents = [
+					{
+						date: new Date('2015-06-27'), 
+						workday: true, 
+						summary: "Mozilla Summit on Saturday"
+					},
+					{
+						date: new Date('2015-06-28'), 
+						workday: true, 
+						summary: "Mozilla another on Sunday"
+					}
+				];
+
+				calendario.use('MozillaCalendar', arrayOfEvents);
+				calendario.ignoreWeekends(false);
+				var workdayOnSaturday = calendario.isWorkday(new Date('2015-06-27 01:00'));
+				var workdayOnSunday = calendario.isWorkday(new Date('2015-06-28 01:00'));
+
+				assert.equal(workdayOnSaturday, false);
+				assert.equal(workdayOnSunday, false);
+				done();
+			});
+		})
+	})
 	context("Valid Input", function() {
 		context("US • United States National", function() {
 			context('- using Thanksgiving Day', function() {

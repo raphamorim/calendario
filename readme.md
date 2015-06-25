@@ -170,6 +170,15 @@ calendario.use('BR'); // Sources: ['BR']
 calendario.clear(); // Sources: []
 ```
 
+#### ignoreWeekends
+
+By default the calendario don't consider weekends as workdays. However you can change this using:
+
+```javascript
+var calendario = require('calendario');
+calendario.ignoreWeekends();
+```
+
 ## Data Source
 
 #### Brazil

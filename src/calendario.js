@@ -9,8 +9,9 @@ function sameDay(date1, date2){
 }
 
 function Calendario() {
-    this.events = []; // [{date: 1, source: }, {date: 1, source: }]
+    this.events = [];
     this.sources = [];
+    this.ignoreWeekend = false;
 }
 
 Calendario.prototype.use = function(name, source) {
@@ -90,6 +91,13 @@ Calendario.prototype.clear = function() {
     this.sources = [];
 }
 
+Calendario.prototype.ignoreWeekends = function(bool) {
+    if (bool === false) 
+        return this.ignoreWeekend = false;
+
+    this.ignoreWeekend = true;
+}
+
 Calendario.prototype.eventList = function() {
     var events = this.sources.map(function(a,b) { return a['events'] }),
         eventsList = [];
@@ -120,6 +128,11 @@ Calendario.prototype.aboutDay = function(date) {
 Calendario.prototype.isWorkday = function(date) {
     var events = this.eventList(),
         workday = true;
+
+    if (!this.ignoreWeekend) {
+        if (date.getDay() === 0 || date.getDay() === 6)
+            return false;
+    }
 
     events.forEach(function(ev) {
         if (sameDay(date, ev.date))

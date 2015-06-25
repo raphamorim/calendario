@@ -166,6 +166,15 @@ calendario.use('BR'); // Sources: ['BR']
 calendario.clean(); // Sources: []
 ```
 
+#### ignoreWeekends
+
+Por padrão, o calendario não considera finais de semana como dias de trabalho. Porém você consegue mudar essa configuração usando:
+
+```javascript
+var calendario = require('calendario');
+calendario.ignoreWeekends();
+```
+
 ## Fonte de Dados
 
 #### Brasil
