@@ -18,8 +18,6 @@ $ npm install calendario
 
 ## Usage
 
-Currently there are only **national** calendars (except for Brazil and U.S.A). In next release will be added regional support.
-
 **Available for:**
 
 - Brazil `.use('BR')`
